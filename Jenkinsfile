@@ -26,6 +26,7 @@ pipeline {
             steps {
                 echo 'Ejecutando pruebas unitarias...'
                 sh 'make test-unit'
+                sh 'exit 1'
                 archiveArtifacts artifacts: 'results/*.xml', allowEmptyArchive: true
             }
         }
