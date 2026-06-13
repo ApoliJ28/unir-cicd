@@ -1,6 +1,11 @@
 pipeline {
     agent any // Modificado de 'docker' a 'any' para ejecución local
 
+    environment {
+        // Se inyecta el PATH para que Jenkins pueda encontrar 'docker' y 'make' en el sistema local
+        PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${env.PATH}"
+    }
+
     stages {
         stage('Source') {
             steps {
